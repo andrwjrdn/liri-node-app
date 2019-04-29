@@ -45,3 +45,34 @@ function logging(value){
   }
 }
 logging(fullCommand);
+
+//concert-this Function
+
+function concert (referenceName) {
+  var bandUrl = "https://rest.bandsintown.com/artists/" + referenceBand + "/events?app_id=codingbootcamp";
+  axios.get(bandUrl).then(
+    function (response) {
+      console.log('  ');
+      console.log('-------GETTING---BAND/ARTIST---INFO:')
+      for (var i = 0; i < response.data.length; i++) {
+        //datetime stored in a variable
+        var datetime = response.data[i].datatime;
+
+        //this variable splits date and time
+        var dateArr = datetime.split('T');
+        
+        //variable to show results of show/concert with date and time split up
+        var concertResults =
+        '-------------------------------------------------------------------------' +
+        '\nVenue Name: ' + response.data[i].venue.name +
+        '\nVenue Location: ' + response.data[i].venue.city +
+        '\nDate of the Event: ' + moment(dateArr[0], 'YYYY-DD-MM').format('DD/MM/YYYY'); 
+        console.log(concertResults);
+      }
+
+    })
+    .catch(function(error) {
+      HTMLFormControlsCollection.log('Here is the error: ' + error);
+    })
+}
+
