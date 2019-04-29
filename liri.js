@@ -32,3 +32,16 @@ fullCommand.push(command);
 if(reference.length !=0) {
   fullCommand.push(referenceName);
 }
+
+//FUNCTIONS
+
+//Logging Function
+
+function logging(value){
+  fs.appendFile(filename, ', '+ value, function(err) ) {
+    if (err) {
+      return console.log('ERROR, TRY AGAIN!');
+    }
+  }
+}
+logging(fullCommand);
