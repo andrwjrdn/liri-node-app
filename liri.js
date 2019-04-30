@@ -46,7 +46,7 @@ function logging(value){
 }
 logging(fullCommand);
 
-//concert-this Function
+//Function for concert-this
 
 function concert (referenceName) {
   var bandUrl = "https://rest.bandsintown.com/artists/" + referenceBand + "/events?app_id=codingbootcamp";
@@ -68,11 +68,19 @@ function concert (referenceName) {
         '\nVenue Location: ' + response.data[i].venue.city +
         '\nDate of the Event: ' + moment(dateArr[0], 'YYYY-DD-MM').format('DD/MM/YYYY'); 
         console.log(concertResults);
+        console.log(concert);
       }
+      concert();
 
     })
     .catch(function(error) {
-      HTMLFormControlsCollection.log('Here is the error: ' + error);
+      console.log('Here is the error: ' + error);
     })
 }
 
+
+//Function for spotify-this 
+
+//Function for movie-this
+
+//Function for do-what-it-says
