@@ -103,7 +103,38 @@ function spotifySong (reference) {
 }
 
 //Function for movie-this
-function movie() {
+function movie(reference) {
+  if(reference.length === 0) {
+    reference = 'Remember The Titans';
+  }
+
+  axios.get('http://www.omdbapi.com/?t=' + reference + '&plot=short&apikey=trilogy').then(
+    function(response) {
+      var tomatoes = response.data.Ratings[1]
+      console.log('This is the value from Rotten Tomatoes: '+tomatoes)
+
+      if (tomatoes === undefined) { tomatoes = 'Not available' }
+      else {tomatoes = response.data.Ratings[1].Value;}
+      console.log ('  ');
+
+      var movieResults = 
+        '\n* Title: ' + response.data.Title +
+        '\n* Year: ' + response.data.Year +
+        '\n* IMDB Rating: ' + response.data.Rated +
+        '\n* Rotten Tomatoes Rating: ' + rotten +
+        '\n* Country Produced: ' + response.data.Country +
+        '\n* Language: ' + response.data.Language +
+        '\n* Plot: ' + response.data.Plot +
+        '\n* Actors: ' + response.data.Actors +
+        '\n ' + 
+        '\n************************************************************************* ' +
+        '\n ';
+      console.log(movieResults);
+    })
+    .catch(function(error)
+    {
+      console.log('This is the error: ' + error);
+    });
 
 
 }
