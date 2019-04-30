@@ -96,7 +96,6 @@ function spotifySong (reference) {
         '\nSong Name: ' + resoponse.tracks.items[i].name +
         '\nAlbum Name: ' + response.tracks.items[i].album.name +
         '\nPreview Link: ' + response.tracks.items[i].preview_url;
-        
         console.log(spotifyResults);
     }
   })
