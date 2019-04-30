@@ -80,7 +80,36 @@ function concert (referenceName) {
 
 
 //Function for spotify-this 
+function spotifySong (reference) {
+  if(reference.length === 0) {
+    reference = 'Black Panther';
+  }
+  spotify
+  .search({type: 'track', query:reference})
+  .then(function(response){
+    console.log("  ");
+
+    for (var i = 0; i < 5; i++) {
+        var spotifyResults = 
+        '-------------------------------------------------------------------------' +
+        '\nArtists: ' + response.tracks.items[i].artists[0].name +
+        '\nSong Name: ' + resoponse.tracks.items[i].name +
+        '\nAlbum Name: ' + response.tracks.items[i].album.name +
+        '\nPreview Link: ' + response.tracks.items[i].preview_url;
+        
+        console.log(spotifyResults);
+    }
+  })
+
+}
 
 //Function for movie-this
+function movie() {
+
+
+}
 
 //Function for do-what-it-says
+function doWhat() {
+
+}
