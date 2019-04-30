@@ -5,9 +5,8 @@ require("dotenv").config();
 var keys = require('.keys.js');
 var Spotify = require('node-spotify-api');
 var fs = require('fs');
-var request = require('request');
 var moment = require('moment');
-var spotify = new spotify(keys.spotify);
+var spotify = new Spotify(keys.spotify);
 var axios = require('axios');
 var arg = process.argv;
 var command = process.argv[2];
@@ -45,6 +44,19 @@ function logging(value){
   }
 }
 logging(fullCommand);
+
+//Commands: 
+
+if (command === 'concert-this') {
+  concert(referenceBand);
+} else if (command === 'spotify-this-song') {
+  spotifySong(reference);
+} else if (command === 'movie-this') {
+  movie(reference);
+} else if (command === 'do-what-it-says') {
+  doWhat();
+}
+
 
 //Function for concert-this
 
@@ -141,5 +153,30 @@ function movie(reference) {
 
 //Function for do-what-it-says
 function doWhat() {
+  fs.readFile('random.txt', 'utf8', function (error, data){
+      if(error) {
+        return console.log(error);
+      }
+      var dataArr = data.split(',');
+      console.log('');
+      console.log('');
+
+      for (var i = 0; i < dataArr.length; i++) {
+      if (dataArr[i] === 'spotify-this-song') {
+        songs = dataArr[++i];
+        console.log('-------SPOTIFY------'+ songs + '---------')
+        spotifySong(songs);
+
+      }else if (dataArr[i] === 'movie-this') {
+        movies = dataArr[++i];
+        console.log('-------WATCH-MOVIE------'+ movies + '---------')
+          movie(movies);
+      }else if (dataArr[i] === 'concert-this') {
+        movies = dataArr[++i];
+        console.log('-------ARTISTS/BANDS------'+ artists + '---------')
+        concert(artists);
+      }
+  }
+})
 
 }
