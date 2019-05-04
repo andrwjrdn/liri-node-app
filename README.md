@@ -9,4 +9,7 @@ LIRI is a Language Interpretation and Recognition Interface. LIRI will be a comm
 </ul>
 <br>https://drive.google.com/file/d/1-VNfZ3ybrQC_7_HsATXaH5gcchalkeu0/view?usp=sharing</br>
 <br> Concert-this function</br>
+<ul>
+  <ui>- In this function, I stored the date time(date of show/concert) object in a variable which I called in the concertResults variable to display results of the concert.
+</ul>
 
