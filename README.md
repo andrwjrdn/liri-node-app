@@ -7,7 +7,6 @@ LIRI is a Language Interpretation and Recognition Interface. LIRI will be a comm
 <ul>
   <ui> -  Made a separate function for each command (concert-this, movie-this, and spotify-this) each displaying different results from the API.
 </ul>
-<br></br>
 <br>https://drive.google.com/file/d/1-VNfZ3ybrQC_7_HsATXaH5gcchalkeu0/view?usp=sharing</br>
 <br> Concert-this function</br>
 
