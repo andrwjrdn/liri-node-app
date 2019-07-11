@@ -23,3 +23,15 @@ LIRI is a Language Interpretation and Recognition Interface. LIRI will be a comm
 <ul>
  -  In this function, user searches a song and receives Artist name, Song Name, Album name, and Preview Link. 
 </ul>
+
+## TECHNOLOGIES USED
+* Javascript
+* Nodejs
+* Node packages:
+    * Node-Spotify-API
+    * Request
+    * Moment
+    * DotEnv
+* APIs used:
+    * Bands in Town
+    * OMDB
